@@ -133,11 +133,11 @@ function meusDados (pessoas) {
     ;
     return frase1
 }
- console.log(meusDados (pessoa1))
+ console.log(meusDados (pessoa1),meusDados (pessoa2))
  
 
 
- // ATIVIDADE 3
+ //ATIVIDADE 3
 
  // EXERCICIO A
  var carrinho = [];
@@ -157,5 +157,11 @@ const fruta3 = {
   disponivel: true
 }
 
-function sacola (frutas)
+// EXERCICIO C
+function comprar (fruta) {
+    carrinho.push(fruta)
+}
+comprar ([fruta1,fruta2,fruta3])
+// EXERCICIO C
 
+console.log(carrinho)
