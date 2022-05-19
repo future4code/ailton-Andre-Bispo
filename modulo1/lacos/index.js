@@ -108,26 +108,25 @@
 //     console.log(frasisinha)
 
 // >> E
-const arrayOriginal = [80, 30, 130, 40, 60, 21,70, 120, 90, 103, 110, 55]
+// const arrayOriginal = [80, 30, 130, 40, 60, 21,70, 120, 90, 103, 110, 55]
 
-let valorMax = (1/0)*(-1)
-//arrayOriginal[arrayOriginal.length-1]/arrayOriginal[0];
-let valorMinimo = (1/0)
-let valorComparado = () => {
-        for ( let numeros of arrayOriginal) {
-           if  (valorMax < numeros) {
-               valorMax = numeros
-           } else if (valorMinimo > numeros) {
-               valorMinimo = numeros
+// let valorMax = (1/0)*(-1)
+// let valorMinimo = (1/0)
+// let valorComparado = () => {
+//         for ( let numeros of arrayOriginal) {
+//            if  (valorMax < numeros) {
+//                valorMax = numeros
+//            } else if (valorMinimo > numeros) {
+//                valorMinimo = numeros
 
-           }
+//            }
            
-            }
-            return valorMax, valorMinimo
+//             }
+//             return valorMax, valorMinimo
 
-        }
+//         }
        
       
-        valorComparado(valorMinimo)
-        console.log(valorMax,valorMinimo)
+//         valorComparado(valorMinimo)
+//         console.log(valorMax,valorMinimo)
     
