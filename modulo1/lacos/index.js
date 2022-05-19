@@ -63,14 +63,14 @@
 // ATIVIDADE 2
 //>>A
 
-const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
+//const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
 
 // for ( let valorindice of arrayOriginal) {
    
 //  console.log(valorindice)
 // }
 
-//>>B
+// //>>B
 
 
 // for ( let valorindice of arrayOriginal) {
@@ -78,12 +78,56 @@ const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
 //     console.log(valorindice/10)
 //    }
 
-//>>C
+// //>>C
 
- let arrayPares = []
+// let arrayPares = []
+// let definePar = () => {
+//     for(let numero of arrayOriginal){
+//         let arrayOriginalPares = numero % 2
+//         if (arrayOriginalPares === 0){
+//             arrayPares.push(numero)
+//         }
+//     }
 
-for ( arrayPares of arrayOriginal % 2) {
-    arrayPares.push( console.log(arrayPares))
- }
+//  console.log(arrayPares)
+// }
+// definePar()
 
+//>>D
 
+// let frasisinha = []
+// let arrayEscrito = () => {
+//     for ( let indice of arrayOriginal) {
+//         let definirPosicao = arrayOriginal.indexOf(indice)
+
+//         frasisinha.push (`O Elemento do index ${definirPosicao} é : ${indice}`)
+                         
+//         }
+//     }
+//     arrayEscrito()
+//     console.log(frasisinha)
+
+// >> E
+const arrayOriginal = [80, 30, 130, 40, 60, 21,70, 120, 90, 103, 110, 55]
+
+let valorMax = (1/0)*(-1)
+//arrayOriginal[arrayOriginal.length-1]/arrayOriginal[0];
+let valorMinimo = (1/0)
+let valorComparado = () => {
+        for ( let numeros of arrayOriginal) {
+           if  (valorMax < numeros) {
+               valorMax = numeros
+           } else if (valorMinimo > numeros) {
+               valorMinimo = numeros
+
+           }
+           
+            }
+            return valorMax, valorMinimo
+
+        }
+       
+      
+        valorComparado(valorMinimo)
+        console.log(valorMax,valorMinimo)
+    
