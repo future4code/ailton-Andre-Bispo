@@ -17,8 +17,8 @@ let podeComprarPc = false
         maoComputador = []
         maoJogador = []
 
-         sorteiaCartas(maoComputador, 2)
-         sorteiaCartas(maoJogador, 2)
+         darCartas(maoComputador, 2)
+         darCartas(maoJogador, 2)
          checaAses()
 
          pontosTotalJogador()
@@ -30,7 +30,7 @@ let podeComprarPc = false
          imprimeValorInicial()
          pontosTotalJogador()
          pontosTotalComputador()
-         perguntaDesejaComprarMais()
+         comprarMais()
          pcCompraMais()
          comparativo(somaJogador, somaComputador)
       }
@@ -49,8 +49,8 @@ let podeComprarPc = false
          for(let i=0; i<2; i++){
            maoComputador.pop()
          }
-         sorteiaCartas(maoComputador, 2)
-         sorteiaCartas(maoJogador, 2)
+         darCartas(maoComputador, 2)
+         darCartas(maoJogador, 2)
          }}  
 
 function imprimeValorInicial () {
@@ -60,7 +60,7 @@ function imprimeValorInicial () {
     pontuação ${maoJogador[0].valor +maoJogador[1].valor}`)
 }
 
-function sorteiaCartas (pegarCartas, numeroDeVez) {
+function darCartas (pegarCartas, numeroDeVez) {
    for (let i = 0; i<numeroDeVez; i++){
       pegarCartas.push(comprarCarta())
       }
@@ -91,14 +91,38 @@ function comparativo () {
    else if ((somaComputador === somaJogador || somaComputador && somaJogador > 21)) {
       console.log('Empate!')
    }
-   console.log(`Usuario:${somaJogador}, PC: ${somaComputador}`) 
+   console.log(`Usuario:${somaJogador} = PC: ${somaComputador}`) 
 }
 
-function perguntaDesejaComprarMais () {
-
+function comprarMais () {
+  
    while (podeComprar === true) {
-      if (confirm('Deseja comprar mais cartas?')) {
-         sorteiaCartas(maoJogador, 1)
+      if (confirm(`O computador revelou: ${maoComputador[0].texto}
+
+      A sua mão atual é: ${maoJogador[0].texto} ${maoJogador[1].texto}
+
+      Pontuação: ${maoJogador[0].valor +maoJogador[1].valor}
+
+      Deseja comprar mais cartas?` )) {
+
+         darCartas(maoJogador, 1)
+               
+   //    comprarMais.push(confirm (`Comprou ${maoJogador[maoJogador.length-1].texto}`
+   //    ,
+     
+   // //  A sua mão atual é:  ${maoJogador[0].texto} ${maoJogador[1].texto} ${maoJogador[2].texto}
+
+   // // Pontuação: ${maoJogador[0].valor + maoJogador[1].valor + maoJogador[2].valor}
+   // //  O computador revelou: ${maoComputador[0].texto}
+   // //  Deseja comprar mais cartas?`
+   
+   //  )
+   // ),
+   //  pontosTotalJogador()
+   // if (somaJogador >= 21) {
+   //    podeComprar = false
+   // }
+         
          console.log(`Comprou ${maoJogador[maoJogador.length-1].texto}`)
          pontosTotalJogador()
          if (somaJogador >= 21) {
@@ -116,7 +140,7 @@ function pcCompraMais () {
    }
    while (podeComprarPc === true){
 
-      sorteiaCartas(maoComputador, 1)
+      darCartas(maoComputador, 1)
       console.log(`O computador comprou ${maoComputador[maoComputador.length-1].texto}`)
       pontosTotalComputador()
 
