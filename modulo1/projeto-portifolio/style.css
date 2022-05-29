@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+ ;
+}
+/* cor de fundo PRECISA ARRUMAR */
+body {
+    background: rgb(34, 34, 34);
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* texto nome */
+.profile__name {
+   color: rgb(220, 177, 7);
+    
+}
+   /* texto profissão */
+  .profile__profession {
+    color: rgb(220, 177, 7);
+}
+/* alinhas toda a parte de perfil */
+.profile {
+    padding-top: 1.5rem;
+    display: grid;
+    text-align: center;
+   
+  }
+  /* arruma a foto pra dimenção certe e esconde o escedente */
+  .profile__perfil {
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* cria a borda anel/coloca centrlizada */
+  .profile__border {
+    border: 3.5px solid;
+    justify-self: center;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: .75rem;
+    color:gold;
+  }
+  /* colocar em linha os icones */
+  .profile__social_media {
+    display: flex;
+    justify-content: center;
+    column-gap: .75rem;
+  }
+  /* arrumar cor/tamanho/separação dos icones */
+  .profile__icons {
+    font-size: 1.25rem;
+    color: gold ;
+    transition: .3s;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* .contact__input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    border: 1.5px ;
+    outline: none;
+   
+  }
+  .section{
+      color: gold;
+  }
+  .contact__button {
+    display: block;
+       outline: none;
+       cursor: pointer;
+    margin-left: auto;
+  } */
