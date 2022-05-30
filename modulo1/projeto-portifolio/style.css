@@ -72,12 +72,12 @@ img {
   }
   .header-container{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color:rgb(34, 34, 34);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    
     box-sizing: border-box;
     padding: 0 112px;
     position: relative;
@@ -111,7 +111,7 @@ img {
   .checkbox .trace{
     width: 50px;
     height: 2px;
-    background-color: rgb(255, 200, 2);
+    background-color: white;
     position: absolute;
     border-radius: 4px;
     transition: 0.5s ease-in-out;
@@ -128,22 +128,72 @@ img {
     top: 66px;
     transform: rotate(0);
   }
-  /* .contact__input {
-    width: 80%;
-    padding: .5rem;
-    border-radius: 1.5rem;
-    border: 1.px ;
-    outline: none;
-    align-items: center;
+  #toggle {
+    display: none;
   }
-  .section{
-      color: gold;
+  .menu{
+    position: absolute;
+    top: 28px;
+    right: 30;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px #ffffff;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
   }
-  .contact__button {
-   
-    display: block;
-       outline: none;
-       cursor: pointer;
-    margin-left: auto;
-     
-  }*/
+  .menu-items {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 2;
+opacity: 0;
+visibility: hidden;
+transition: 400ms ease-in-out 0s;
+  }
+  .menu-items ul {
+    list-style-type: none;
+  }
+  .menu-items ul li a {
+    margin: 10px 0;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+   font-size: 40px; 
+  
+  }
+  #toggle:checked + .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    top: 47px;
+    
+  }
+  #toggle:checked + .checkbox .trace:nth-child(2) {
+    transform: translate(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+  }
+  #toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 47px;
+    
+  }
+  #toggle:checked + .checkbox {
+    background-color:  rgb(200, 161, 4);
+  }
+  #toggle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax rgb(200, 161, 4);
+    z-index: 1;
+  }
+  #toggle:checked ~ .menu-items{
+    visibility: visible;
+    opacity: 1;
+  }
+ 
