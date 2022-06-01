@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}.labetube{
+    background-color: beige;
+        display: grid;
+       
+        grid-template-rows:7vh 21.5vh 21.5vh 21.5vh 21.5vh 7vh ;
+        grid-template-columns:repeat(4,25vw) ;
+        grid-template-areas:
+        'head head head head'
+        'tela tela tela tela'
+        'tela tela tela tela'
+        'tela tela tela tela'
+        'tela tela tela tela'
+        'foot foot foot foot';
+    }
+header { display: flex;
+    background-color: aqua;
+    grid-area: head;
+}
+
+main{ display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    background-color: white;
+    grid-area:tela;
+}
+main>div{
+  box-shadow: 10px solid gray;
+    background-color: blueviolet;
+}
+
+footer{ display: flex;
+    background-color: darksalmon;
+    grid-area: foot;
+}
