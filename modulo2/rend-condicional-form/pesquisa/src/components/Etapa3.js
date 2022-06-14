@@ -26,7 +26,6 @@ export default class Etapa3 extends Component {
         <option>Curso Técnico</option>
         <option>Curso de Inglês</option>
         </select>
-        <button></button>
       </Principal>
     )
   }

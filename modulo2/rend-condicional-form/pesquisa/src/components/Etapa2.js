@@ -22,7 +22,6 @@ export default class Etapa2 extends Component {
 
       <h3>6. Qual a unidade de ensino?</h3>
         <input></input>
-        <button></button>
       </Principal>
     )
   }
