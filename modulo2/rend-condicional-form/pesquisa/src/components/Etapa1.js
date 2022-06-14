@@ -17,13 +17,16 @@ export default class Etapa1 extends Component {
         <h1>ETAPA 1 - DADOS GERAIS</h1>
         
         <h3>1. Qual o seu nome?</h3>
-        <input onChange={this.props.onChangeNome} value={this.props.nome}></input>
+        <input onChange={this.props.onChangeNome} 
+        value={this.props.nome}></input>
 
         <h3>2. Qual sua idade?</h3>
-        <input onChange={this.props.onChangeIdade} value={this.props.idade}></input>
+        <input onChange={this.props.onChangeIdade} 
+        value={this.props.idade}></input>
 
         <h3>3. Qual seu email?</h3>
-        <input onChange={this.props.onChangeEmail} value={this.props.email}></input>
+        <input onChange={this.props.onChangeEmail} 
+        value={this.props.email}></input>
 
         <h3>4. Qual a sua escolaridade?</h3>
         <select>

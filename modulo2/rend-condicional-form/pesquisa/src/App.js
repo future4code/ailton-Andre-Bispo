@@ -23,6 +23,9 @@ dadoNome:"",
 dadoIdade:"",
 dadoEmail:"",
 dadoEscolaridade:"",
+dadoCurso:"",
+dadoUnidadeEnsino:"",
+dadoPQN:"",
 tela: 1
 }
 renderScreen = () => {
@@ -38,11 +41,15 @@ renderScreen = () => {
       onChangeEscolaridade={this.changeInputEscolaridade}/>
       break;
     case 2:
-      return <Etapa2 />
-      
+      return <Etapa2 curso={this.state.dadoCurso}
+      unidadeEnsino={this.state.dadoUnidadeEnsino}
+      onChangeCurso={this.changeInputCurso}
+      onChangeUnidadeEnsino={this.changeInputUnidadeEnsino}
+      />
       break;
     case 3:
-      return <Etapa3 />
+      return <Etapa3 pqn={this.state.dadoPQN}
+      onChangePQN={this.changeInputPQN}/>
       break;
     case 4:
       return <EtapaFinal />
@@ -51,7 +58,6 @@ renderScreen = () => {
 }
 pulaEtapa = () => {
   this.setState({tela:this.state.tela + 1})
-
   }
   changeInputNome=(event)=>{
     this.setState({dadoNome:event.target.value})
@@ -61,6 +67,15 @@ pulaEtapa = () => {
   }
   changeInputEmail=(event)=>{
     this.setState({dadoEmail:event.target.value})
+  }
+  changeInputCurso=(event)=>{
+    this.setState({dadoCurso:event.target.value})
+  }
+  changeInputUnidadeEnsino=(event)=>{
+    this.setState({dadoUnidadeEnsino:event.target.value})
+  }
+  changeInputPQN=(event)=>{
+    this.setState({dadoPQN:event.target.value})
   }
   render(){
   return (
@@ -73,6 +88,3 @@ pulaEtapa = () => {
   );
 }
 }
-
-
-// export default App;

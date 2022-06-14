@@ -18,7 +18,9 @@ export default class Etapa2 extends Component {
         <h1>ETAPA 2 - INFORMAÇÕES DO ENSINO SUPERIOR</h1>
 
          <h3>5. Qual curso?</h3>
-      <input></input>
+      <input onChange={this.props.onChangeCurso}
+      value={this.props.curso}
+      ></input>
 
       <h3>6. Qual a unidade de ensino?</h3>
         <input></input>
