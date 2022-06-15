@@ -1,108 +1,79 @@
-import React from 'react'
-import styled from 'styled-components'
-import './styles.css'
+import React, { Component } from "react";
+import {Post} from "./components/Post";
 
-const TarefaList = styled.ul`
-  padding: 0;
-  width: 200px;
-`
-
-const Tarefa = styled.li`
-
-  text-align: left;
-  text-decoration: ${({completa}) => (completa ? 'line-through' : 'none')};
- 
-`
-
-const InputsContainer = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  gap: 10px;
-`
-
-class App extends React.Component {
-    state = {
-      tarefas: [{
-        id: Date.now(), // Explicação abaixo
-        texto: 'Entender o notion',
-        completa: false // Indica se a tarefa está completa (true ou false)
-      },{
-        id: Date.now(), // Explicação abaixo
-        texto: 'Entrar em desespero',
-        completa: true // Indica se a tarefa está completa (true ou false)
-      }],
-      inputValue: '',
-      filtro: '',
-    }
-
-  componentDidUpdate() {
-
+class App extends Component {
+  state = {
+    listaDePosts: undefined,
+    textoNovoPost: ""
   };
 
-  componentDidMount() {
-
+  onChangeTextoNovoPost = event => {
+    this.setState({ textoNovoPost: event.target.value });
   };
 
-  onChangeInput = (event) => {
+  adicionarPost = () => {
+    // Adiciona um post à lista
+    const novoPost = {
+      id: Date.now(),
+      texto: this.state.textoNovoPost,
+      curtido: false
+    };
 
-  }
+    const novaListaDePosts = [novoPost, ...this.state.listaDePosts];
 
-  criaTarefa = () => {
+    this.setState({ listaDePost: novaListaDePosts });
+  };
 
-  }
+  apagarPost = postId => {
+    // Apaga um post da lista
+    const novaListaDePosts = this.state.listaDePosts.filter(past => {
+      return postId !== post.id;
+    });
 
-  selectTarefa = (id) => {
+    this.setState({ listaDePosts: novaListaDePosts });
+  };
 
-  }
+  alterarCurtida = postId => {
+    // Altera o status de curtida de um post da lista
+    const novaListaDePosts = this.state.listaDePosts.map(post => {
+      if (postId === post.id) {
+        const novoPost = {
+          ...post,
+          curtido: post.curtido
+        };
+        return novoPost;
+      } else {
+        return post;
+      }
+    });
 
-  onChangeFilter = (event) => {
-
-  }
+    this.setState({ listaDePosts: novaListaDePosts });
+  };
 
   render() {
-    const listaFiltrada = this.state.tarefas.filter(tarefa => {
-      switch (this.state.filtro) {
-        case 'pendentes':
-          return !tarefa.completa
-        case 'completas':
-          return tarefa.completa
-        default:
-          return true
-      }
-    })
-
     return (
       <div className="App">
-        <h1>Lista de tarefas</h1>
-        <InputsContainer>
-          <input value={this.state.inputValue} onChange={this.onChangeInput}/>
-          <button onClick={this.criaTarefa}>Adicionar</button>
-        </InputsContainer>
-        <br/>
-
-        <InputsContainer>
-          <label>Filtro</label>
-          <select value={this.state.filter} onChange={this.onChangeFilter}>
-            <option value="">Nenhum</option>
-            <option value="pendentes">Pendentes</option>
-            <option value="completas">Completas</option>
-          </select>
-        </InputsContainer>
-        <TarefaList>
-          {listaFiltrada.map(tarefa => {
-            return (
-              <Tarefa
-                completa={tarefa.completa}
-                onClick={() => this.selectTarefa(tarefa.id)}
-              >
-                {tarefa.texto}
-              </Tarefa>
-            )
-          })}
-        </TarefaList>
+        <div>
+          <input
+            type="text"
+            onChange={this.onChangeTextoNovoPost}
+            value={this.state.textoNovoPost}
+          />
+          <button onClick={this.adicionarPost}>Adicionar</button>
+        </div>
+        <br />
+        {this.state.listaDePosts.map(post => {
+          return (
+            <Post
+              key={post.id}
+              post={post}
+              alterarCurtida={this.alterarCurtida}
+            />
+          );
+        })}
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
