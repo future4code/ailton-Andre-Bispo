@@ -1,95 +1,34 @@
-import TelaCadastro from "./components/TelaCadastro";
-import TelaInicial from "./components/TelaInicial";
-import styled from "styled-components";
-import React, { Component } from "react";
-import TelaLogin from "./components/TelaLogin";
-import TelaUsuarios from "./components/TelaUsuarios";
-import axios from "axios";
+import React from "react";
+import RegisterPage from "./components/RegisterPage";
+import UsersPage from "./components/UsersPage";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: darkgray;
-  width: 100vw;
-  height: 100vh;
-`;
 
-export default class App extends Component {
+export default class App extends React.Component{
   state = {
-    actualScreen: 0,
-    canAccess: false,
-  };
-
-  setAcces = () => {
-    this.setState ({canAccess: true})
+    showPage: "nhe"
   }
-
-  changeScreenToZero = () => {
-    this.setState({ actualScreen: 0 });
-  };
-  changeScreenToOne = () => {
-    this.setState({ actualScreen: 1 });
-  };
-  changeScreenToTwo = () => {
-    this.setState({ actualScreen: 2 });
-  };
-  changeScreenToThree = () => {
-    if(this.state.canAccess === true) {
-    this.setState({ actualScreen: 3 });
+  changePage = () =>{
+    switch (this.state.showPage){
+      case "register":
+        return <RegisterPage goToRegister ={this.changeToRegister}/>
+      case "users":
+        return <UsersPage goToUsers={this.changeToUsers}/>
+      default:
+        return <div> Erro 404! A págima foi de base :(</div>
     }
-  };
-
-  deleteUser = (id) => {
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,{
-        headers: {
-            Authorization: "gabriel-ferreira-ailton"
-        }
-    }).then((response) => {
-        alert('Usuario deletado')
-    }).catch((error)=> {
-        alert('Não foi possivel deletar o usuario, tente novamente')
-    })
-  };
-
-  changeScreen = () => {
-    switch (this.state.actualScreen) {
-      case 0:
-        return (
-          <TelaInicial
-            screenOne={this.changeScreenToOne}
-            screenTwo={this.changeScreenToTwo}
-          />
-        );
-      case 1:
-        return (
-          <TelaCadastro
-            screenZero={this.changeScreenToZero}
-            screenTwo={this.changeScreenToTwo}
-            screenProps={this.state.actualScreen}
-          />
-        );
-      case 2:
-        return (
-          <TelaLogin
-            screenZero={this.changeScreenToZero}
-            screenOne={this.changeScreenToOne}
-            screenThree={this.changeScreenToThree}
-            screenProps={this.state.actualScreen}
-            access={this.setAcces}
-          />
-        );
-        case 3:
-          return (
-            <TelaUsuarios
-            screenZero={this.changeScreenToZero}
-            deleteUser={this.deleteUser}
-            />               
-          );
+    changeToRegister =()=>{
+      this.setState({showPage:"register"})
     }
-  };
-
-  render() {
-    return <Container>{this.changeScreen()}</Container>;
+    changeToUsers  =()=>{
+      this.setState({showPage:"users"})
+    }
   }
+  render () {
+    return(
+      <div>
+      {this.changePage()}
+      </div>
+    )
+    }
+
 }
