@@ -5,24 +5,25 @@ import UsersPage from "./components/UsersPage";
 
 export default class App extends React.Component{
   state = {
-    showPage: "nhe"
+    showPage: "register"
   }
   changePage = () =>{
     switch (this.state.showPage){
       case "register":
-        return <RegisterPage goToRegister ={this.changeToRegister}/>
+        return <RegisterPage goToUsers ={this.changeToUsers}/>
       case "users":
-        return <UsersPage goToUsers={this.changeToUsers}/>
+        return <UsersPage goToRegister={this.changeToRegister}/>
       default:
         return <div> Erro 404! A págima foi de base :(</div>
-    }
-    changeToRegister =()=>{
-      this.setState({showPage:"register"})
-    }
-    changeToUsers  =()=>{
-      this.setState({showPage:"users"})
-    }
+ 
   }
+}
+changeToRegister =()=>{
+  this.setState({showPage:"register"})
+}
+changeToUsers  =()=>{
+  this.setState({showPage:"users"})
+}
   render () {
     return(
       <div>

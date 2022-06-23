@@ -5,7 +5,7 @@ export default class UsersPage extends React.Component{
         return (
         <div> 
             <h2>Usuarios</h2>
-        <button onClick={this.props.changeToUsers}>proxima</button> UsersPage
+        <button onClick={this.props.goToRegister}>proxima</button> 
         </div>
         )
         
