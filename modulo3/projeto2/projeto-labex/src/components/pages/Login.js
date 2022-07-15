@@ -1,7 +1,7 @@
 // import axios from "axios";
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { goToHomePage,goBack } from "../../routes/Coordinator";
+import {goToAdminHomePage, goToHomePage,goBack } from "../../routes/Coordinator";
 
 export const LoginPage = () => {
  const [email, setEmail] = useState("")
@@ -53,6 +53,7 @@ const inputSenha = (event) => {
             </form>
           
           <div>
+          <button onClick={() => goToAdminHomePage(navigate)}></button>
           <button onClick={() => goToHomePage(navigate)}>Página home</button>
           <button onClick={()=>goBack(navigate)}>Voltar</button>
             </div> 

@@ -1,33 +1,64 @@
 import React from "react";
 import { useNavigate} from "react-router-dom";
 import { goBack, goToHomePage } from "../../routes/Coordinator";
+import useForm from "../hooks/useForm";
+import { listCountries } from "../listCountries";
+
+ export const FormPage = () => {
+   
+    const { form, onChange, cleanFields } = useForm({
+        name:"",
+        age:"",
+        profession:"",
+        applicationText:""
+      })
+      const cadastrar = (event) => {
+        event.preventDefault();
+     cleanFields()
     
-    export const FormPage = () => {
+      };
       const navigate = useNavigate()
-    
-    //   {
-    //     name: "Soter Padua",
-    //     age: 23, // Tem que ser maior de 18 anos
-    //     applicationText: "Sou um bom candidato por X, Y e Z", // Resposta de "porque sou um bom candidato(a)?"
-    //     profession: "Capturador de Bug", // Campo aberto
-    //     country: "Brasil", // Idealmente vem de um dropdown
-    //     trip: "tripId", // Dropdown das viagens cadastradas
-    // }
-    
       return (
         <div>
           <h3>FormPage</h3>
-          <input placeholder = {"nome"}/>
-          <input placeholder = {"idade"}/>
-          <input placeholder = {"Texto de candidatura"}/>
-          <input placeholder = {"profissao"}/>
+          <form onSubmit={cadastrar}>
+          <input
+          name="name"
+          value={form.name}
+          onChange ={onChange}
+          placeholder = {"Nome"}
+          required
+           />
+          <input 
+            name="age"
+            value={form.age}
+            onChange ={onChange}
+          placeholder = {"Idade"}
+          />
+          <input 
+            name="profession"
+            value={form.profession}
+            onChange ={onChange}
+          placeholder = {"Profissão"}
+          />
+          <input 
+            name="applicationText"
+            value={form.applicationText}
+            onChange ={onChange}
+          placeholder = {"Texto de candidatura"}
+          />
+          
           <select>
-            <option>Selecione seu pais de origem</option>
+            <option selected disabled value="">Defina seu pais de origem</option>
+            {listCountries.map((item,index)=>{
+                return <option key={index}>{item}</option>
+            })}
           </select>
           <select>
-            <option>Escolha um Destino</option>
+            <option selected disabled value="">Escolha um Destino</option>
           </select>
           <button>enviar</button>
+          </form>
           <div> 
            <button onClick={() => goToHomePage(navigate)}>Página home</button>
            <button onClick={() => goBack(navigate)}>Voltar</button>

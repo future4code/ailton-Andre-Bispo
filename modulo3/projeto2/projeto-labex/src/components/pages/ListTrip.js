@@ -5,14 +5,7 @@ import { goToHomePage,goToFormPage,goBack } from "../../routes/Coordinator";
 export const ListTrip = () => {
   const navigate = useNavigate()
 
-//   {
-// 	id: "tripId"
-// 	name: "Festança Marciana",
-// 	planet: "Marte", // Ideal que o admin possa escolher de um dropdown
-// 	date: "21/12/21", // O backend aceitará qualquer tipo de dado nesse campo, escolha bem.
-// 	description: "Uma viagem bem legal, na melhor época de marte",
-// 	durationInDays: 228 // Duração da viagem em dias
-// }
+
 
   return (
     <div>
