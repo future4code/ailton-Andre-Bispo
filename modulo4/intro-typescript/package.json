@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@types/node": "^18.0.0",
     "typescript": "^4.7.4"
   },
   "name": "intro-typescript",
@@ -7,8 +8,12 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "tsc && node ./build/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node.build/index;js",
+    "exercicio1": "tsc && node ./build/exercicio1.js",
+    "exercicio2": "tsc && node ./build/exercicio2.js",
+    "exercicio3": "tsc && node ./build/exercicio3.js",
+    "exercicio4": "tsc && node ./build/exercicio4.js",
+    "exercicio5": "tsc && node ./build/exercicio4.js"
   },
   "keywords": [],
   "author": "Andre Luiz",
