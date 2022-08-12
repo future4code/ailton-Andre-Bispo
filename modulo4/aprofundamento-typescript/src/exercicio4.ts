@@ -1,37 +1,23 @@
-type Post = {
-    autor: string,
-    texto: string
+type pokemon = {
+	name: string,
+  types: string,
+	healthPoints: number
 }
 
-const posts: Post[] = [
-    {
-      autor: "Alvo Dumbledore",
-      texto: "Não vale a pena viver sonhando e se esquecer de viver"
-    },
-    {
-      autor: "Severo Snape",
-      texto: "Menos 10 pontos para Grifinória!"
-    },
-    {
-      autor: "Hermione Granger",
-      texto: "É levi-ô-sa, não levio-sá!"
-    },
-    {
-      autor: "Dobby",
-      texto: "Dobby é um elfo livre!"
-    },
-    {
-      autor: "Lord Voldemort",
-      texto: "Avada Kedavra!"
-    }
-]
-
-function buscarPostsPorAutor(posts: Post[], autorInformado: string): Post[] {
-    return posts.filter(
-      (post) => {
-        return post.autor === autorInformado
-      }
-    )
+const pokemon1: pokemon = {
+  name: "Charmander",
+  types: "Fire",
+  healthPoints: 28
 }
 
-console.log(buscarPostsPorAutor(posts, "Dobby"))
+const pokemon2: pokemon = {
+  name: "Bulbasaur",
+  types: "Grass/Poison",
+  healthPoints: 31
+}
+
+const pokemon3: pokemon = {
+  name: "Squirtle",
+  types: "Water",
+  healthPoints: 35
+}

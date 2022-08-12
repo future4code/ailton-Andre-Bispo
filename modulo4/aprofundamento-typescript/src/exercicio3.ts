@@ -1,28 +1,37 @@
-type Estatisticas = {
-    maior: number,
-    menor: number,
-    media: number
+type Post = {
+    autor: string,
+    texto: string
 }
 
-function obterEstatisticas(numeros: number[]): Estatisticas {
+const posts: Post[] = [
+    {
+      autor: "Alvo Dumbledore",
+      texto: "Não vale a pena viver sonhando e se esquecer de viver"
+    },
+    {
+      autor: "Severo Snape",
+      texto: "Menos 10 pontos para Grifinória!"
+    },
+    {
+      autor: "Hermione Granger",
+      texto: "É levi-ô-sa, não levio-sá!"
+    },
+    {
+      autor: "Dobby",
+      texto: "Dobby é um elfo livre!"
+    },
+    {
+      autor: "Lord Voldemort",
+      texto: "Avada Kedavra!"
+    }
+]
 
-    const numerosOrdenados: number[] = numeros.sort(
-        (a, b) => a - b
+function buscarPostsPorAutor(posts: Post[], autorInformado: string): Post[] {
+    return posts.filter(
+      (post) => {
+        return post.autor === autorInformado
+      }
     )
-
-    let soma: number = 0
-
-    for (let num of numeros) {
-        soma += num
-    }
-
-    const estatisticas: Estatisticas = {
-        maior: numerosOrdenados[numeros.length - 1],
-        menor: numerosOrdenados[0],
-        media: soma / numeros.length
-    }
-
-    return estatisticas
 }
 
-console.log(obterEstatisticas([1, 5, 6]))
+console.log(buscarPostsPorAutor(posts, "Dobby"))

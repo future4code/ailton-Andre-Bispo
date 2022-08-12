@@ -1,23 +1,28 @@
-enum CORES {
-    VERMELHA = "vermelha",
-    LARANJA = "laranja",
-    AMARELA = "amarela",
-    VERDE = "verde",
-    AZUL = "azul",
-    ANIL = "anil",
-    VIOLETA = "violeta"
+type Estatisticas = {
+    maior: number,
+    menor: number,
+    media: number
 }
 
-type Pessoa = {
-    nome: string,
-    idade: number,
-    corFavorita: CORES
+function obterEstatisticas(numeros: number[]): Estatisticas {
+
+    const numerosOrdenados: number[] = numeros.sort(
+        (a, b) => a - b
+    )
+
+    let soma: number = 0
+
+    for (let num of numeros) {
+        soma += num
+    }
+
+    const estatisticas: Estatisticas = {
+        maior: numerosOrdenados[numeros.length - 1],
+        menor: numerosOrdenados[0],
+        media: soma / numeros.length
+    }
+
+    return estatisticas
 }
 
-const minhaPessoa: Pessoa = {
-    nome: "astrodev",
-    idade: 35,
-    corFavorita: CORES.VIOLETA
-}
-
-console.log(minhaPessoa)
+console.log(obterEstatisticas([1, 5, 6]))
